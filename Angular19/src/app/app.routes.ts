@@ -8,6 +8,7 @@ import { SinglalsPractice }  from './singlals-practice/singlals-practice';
 import { ForLoopContectualVariables } from './for-loop-contectual-variables/for-loop-contectual-variables';
 import { TwoWayBinding } from './two-way-binding/two-way-binding';
 import { ToDoList } from './to-do-list/to-do-list';
+import { GetApiData } from './get-api-data/get-api-data';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -19,6 +20,7 @@ export const routes: Routes = [
   { path: 'for-loop-contectual-variables', component: ForLoopContectualVariables },
   { path: 'two-way-binding', component: TwoWayBinding },
   { path: 'to-do-list', component: ToDoList },
+  { path: 'get-api-data', component: GetApiData },
 
   
   
