@@ -1,0 +1,63 @@
+body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #f8f9fa;
+      font-size: 14px;
+    }
+ 
+    .card-body {
+      min-height: 200px !important;
+      overflow-y: scroll;
+      max-height: 200px;
+    }
+
+     /* Navigation Bar Styles */
+.app-container {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+}
+
+.sidebar h4 {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+.sidebar a {
+  display: block;
+  padding: 6px 0;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
