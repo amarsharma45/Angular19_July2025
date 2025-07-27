@@ -1,0 +1,12 @@
+.first-row {
+  background-color: orange;
+}
+.last-row {
+  background-color: blue;
+}
+.middle-row {
+  background-color: lightgreen;
+}
+.Odd-row {
+  background-color: rgb(194, 142, 142);
+}

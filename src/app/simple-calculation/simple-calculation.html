@@ -1,0 +1,59 @@
+<div class="container">
+  <!-- <div class="header mt-4 mb-4">
+    <h5>Current Page: {{pageName}}</h5>
+  </div> -->
+  <div class="content">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            Calculations
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <div class="form-label">First Number:</div>
+                <input type="number" class="form-control" [(ngModel)]="num1" placeholder="First Number" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col text-start">
+                <div class="form-label">Second Number:</div>
+                <input type="number" class="form-control" [(ngModel)]="num2" placeholder="Second Number" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <Output>Calculations - :{{Calculate(num1,num2)}}</Output>
+              </div>
+            </div>
+          </div>
+            <div class="card-footer">
+              <i>Simple calculation test</i>
+            </div>   
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card" >
+          <div class="card-header">
+            Date and Time
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                Date : {{currentDate | date:'full':'Asia/Kolkata'}}
+              </div>
+              <div class="col">
+                <button class="btn btn-primary" (click)="MytestFunction()">Show Date</button>
+              </div>
+            </div>
+          </div>
+              <div class="card-footer">
+              <i>Date Pipe test</i>
+              </div>   
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

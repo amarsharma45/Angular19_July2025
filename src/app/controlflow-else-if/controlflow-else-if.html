@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-header">
+        <h3>Else If Control Flow</h3>
+    </div>
+    <div class="card-body">
+        <button class="btn btn-primary" (click)="ChangeColor()">{{toggle ?'Click Me to Make it Yellow':'Click Me to Make it Red '}} </button>
+        <br/>
+          <br/>
+        @if(toggle) {
+            <div class="boxRed" ></div>
+        } @else {
+            <div class="boxYellow"></div>
+        }
+       
+    </div>
+    
+</div>
