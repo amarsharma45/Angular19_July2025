@@ -5,11 +5,16 @@
     </div>
     <div class="card-body">
       <div class="row align-items-center">
-        <div class="col-auto">
-          <label class="mb-0">{{ CombinedName }}</label>
+        <div class="col-3">
+           <button class="btn btn-primary" (click)="login(1, 'Amar')">Login</button>
+  
         </div>
-        <div class="col-auto">
-          <button class="btn btn-primary" (click)="login(1, 'Amar')">Login</button>
+        <div class="col-9">
+                   @if (token!='') {
+
+             <label style="max-width: 500px;"> Token is : {{token}}</label>
+           }
+         <label style="max-width: 250px;" class="mb-0">{{ CombinedName }}</label>
         </div>
       </div>
     </div>
