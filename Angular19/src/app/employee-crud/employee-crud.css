@@ -1,0 +1,16 @@
+
+.mat-mdc-cell
+{
+font-size: 16px !important;
+}
+.mat-mdc-header-cell
+{
+    font-size: 17px !important;
+    background-color:#2c5364 !important;
+    color: white;
+}
+.mat-mdc-paginator-range-actions
+{
+    font-size: 17px !important;
+}
+

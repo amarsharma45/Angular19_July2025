@@ -1,24 +1,53 @@
-<table>
-    <thead>
-        <tr>
-            <th>
-                Emp Id
-            </th>
-            <th>
-                    Emp Name
-            </th>
-        </tr>
-    </thead>
-     <tbody>
-        @for (item of listEmp; track $index) {
-            <tr>
-                <td>
-                    {{item.EmployeeID}}
-                </td>
-                <td>
-                    {{item.FirstName}}
-                </td>
-            </tr>
-            }
-        </tbody>
-</table>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Employee Details</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" class="mat-table" matSort>
+
+        <!-- Emp ID Column -->
+        <ng-container matColumnDef="employeeID">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Emp ID</th>
+          <td mat-cell *matCellDef="let element">{{ element.employeeID }}</td>
+        </ng-container>
+
+        <!-- Emp Name Column -->
+        <ng-container matColumnDef="firstName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Emp Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" (click)="onEdit(element)">
+            <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="onDelete(element)">
+            <mat-icon>delete</mat-icon>
+            </button>
+        </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator style="font-size: 17px;" [pageSize]="5"  [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>

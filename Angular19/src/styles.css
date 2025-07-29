@@ -245,3 +245,41 @@ body {
   background-color: #00e6e6;
   color: #000;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+/* 
+for mat table */
+/* Change font of the SELECTED paginator value (like '5') */
+.mat-mdc-select-trigger {
+  font-size: 16px !important;
+  line-height: 20px !important;
+  color: #000 !important;
+}
+
+/* OPTIONAL: Change the dropdown options */
+.mat-mdc-option {
+  font-size: 16px !important;
+}
+
+/* OPTIONAL: Change label text 'Items per page' */
+.mat-mdc-paginator-page-size-label {
+  font-size: 16px !important;
+}
+
+/* OPTIONAL: Change text like '1–5 of 20' */
+.mat-mdc-paginator-range-label {
+  font-size: 16px !important;
+}
+.mat-mdc-select-trigger {
+  font-size: 16px !important;
+}
+
+/* ✅ This targets the actual text span inside the select trigger */
+.mat-mdc-select-trigger span.mat-mdc-select-value-text {
+  font-size: 16px !important;
+  line-height: 24px !important;
+}

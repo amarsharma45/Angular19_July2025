@@ -8,7 +8,7 @@ import { Employee } from '../models/employee';
 })
 export class EmployeeService {
 
-  private readonly endpoint='employee'
+  private readonly endpoint='employees'
   constructor(private api:ApiService){}
   getAll():Observable<Employee[]>
   {
