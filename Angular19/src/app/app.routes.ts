@@ -9,6 +9,7 @@ import { ForLoopContectualVariables } from './for-loop-contectual-variables/for-
 import { TwoWayBinding } from './two-way-binding/two-way-binding';
 import { ToDoList } from './to-do-list/to-do-list';
 import { GetApiData } from './get-api-data/get-api-data';
+import { EmployeeCrud } from './employee-crud/employee-crud';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -21,6 +22,7 @@ export const routes: Routes = [
   { path: 'two-way-binding', component: TwoWayBinding },
   { path: 'to-do-list', component: ToDoList },
   { path: 'get-api-data', component: GetApiData },
+  { path: 'employee-crud', component: EmployeeCrud },
 
   
   

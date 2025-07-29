@@ -1,0 +1,24 @@
+<table>
+    <thead>
+        <tr>
+            <th>
+                Emp Id
+            </th>
+            <th>
+                    Emp Name
+            </th>
+        </tr>
+    </thead>
+     <tbody>
+        @for (item of listEmp; track $index) {
+            <tr>
+                <td>
+                    {{item.EmployeeID}}
+                </td>
+                <td>
+                    {{item.FirstName}}
+                </td>
+            </tr>
+            }
+        </tbody>
+</table>

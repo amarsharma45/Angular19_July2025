@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
 })
 export class GetApiData {
     //https://json-placeholder.mock.beeceptor.com/roles
+    //https://amarsharma-cafse9c4dzgbf2hc.eastus2-01.azurewebsites.net/api/product
     userList:any[]=[];
 
     pagedUsers: any[] = [];
