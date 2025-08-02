@@ -14,5 +14,20 @@ export class EmployeeService {
   {
     return this.api.get<Employee[]>(this.endpoint)
   }
+  getEmployeeById(employeeId:number):Observable<Employee>
+  {
+    return this.api.getById<Employee>(this.endpoint,employeeId)
+  }
+  saveEmployee(employee:Employee):Observable<Employee>
+  {
+      return this.api.post<Employee>(this.endpoint,employee);
+  }
+  updateEmployee(employeeId:number,employee:Employee):Observable<Employee>
+  {
+    return this.api.put<Employee>(this.endpoint,employeeId,employee);
+  }
+  deleteEmployee(employeeId:number):Observable<void>{
+    return this.api.delete(this.endpoint,employeeId);
+  }
   
 }

@@ -1,0 +1,61 @@
+<!-- Bootstrap Modal -->
+<div class="modal fade show d-block" tabindex="-1" role="dialog" style="background: rgba(0,0,0,0.5);">
+  <div class="modal-dialog modal-lg" #modalDialog role="document"  >
+    <div class="modal-content">
+
+      <div class="modal-header" style="cursor: move;">
+        <h5 class="modal-title">{{ isEditMode ? 'Edit' : 'Create' }} Employee</h5>
+        <button type="button" class="btn-close" (click)="onClose()"></button>
+      </div>
+
+      <div class="modal-body">
+        <form>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label>First Name</label>
+              <input class="form-control" [(ngModel)]="employee.firstName" placeholder="Please enter first name" name="firstName" required>
+            </div>
+            <div class="col-md-6">
+              <label>Last Name</label>
+              <input class="form-control" [(ngModel)]="employee.lastName" placeholder="please enter last name" name="lastName" required>
+            </div>
+            <div class="col-md-6">
+              <label>Email</label>
+              <input type="email" class="form-control" [(ngModel)]="employee.email" placeholder="please enter email" name="email" required>
+            </div>
+            <div class="col-md-6">
+              <label>Department</label>
+              <!-- <input class="form-control" [(ngModel)]="employee.department" placeholder="Please enter department" name="department"> -->
+              <select class="form-control" [(ngModel)]="employee.department"  name="department">
+                <option  value="">--Select Department--</option>
+                <option  value="HR">HR</option>
+                <option  value="IT">IT</option>
+                <option  value="Finance">Finance</option>
+                <option  value="Marketing">Marketing</option>
+                <option  value="Support">Support</option>
+                <option  value="Admin">Admin</option>
+
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" [(ngModel)]="employee.joiningDate" name="joiningDate">
+            </div>
+            <div class="col-md-6">
+              <label>Salary</label>
+              <input type="number" class="form-control" [(ngModel)]="employee.salary" name="salary">
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-primary" (click)="onSave()">
+          {{ isEditMode ? 'Update' : 'Create' }}
+        </button>
+        <button class="btn btn-secondary" (click)="onClose()">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+</div>
