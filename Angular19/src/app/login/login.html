@@ -1,25 +1,27 @@
-<div class="container mt-4">
-  <div class="card">
-    <div class="card-header">
-      Login Page
-    </div>
-    <div class="card-body">
-      <div class="row align-items-center">
-        <div class="col-3">
-           <button class="btn btn-primary" (click)="login(1, 'Amar')">Login</button>
-  
-        </div>
-        <div class="col-9">
-                   @if (token!='') {
+<div class="login-page d-flex justify-content-center align-items-center">
 
-             <label style="max-width: 500px;"> Token is : {{token}}</label>
-           }
-         <label style="max-width: 250px;" class="mb-0">{{ CombinedName }}</label>
-        </div>
+  <div class="login-card p-4 shadow rounded">
+    <h2 class="text-center mb-4">Login</h2>
+
+    <form>
+      <div class="form-group mb-3">
+        <input type="text" [(ngModel)]="name" name="username" class="form-control" placeholder="Username" />
       </div>
-    </div>
-    <div class="card-footer">
-      <i>Login Page Footer</i>
-    </div>
+
+      <div class="form-group mb-3">
+        <input type="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Password" />
+      </div>
+
+      <div class="text-center">
+        <button (click)="login()" class="btn btn-primary">Login</button>
+      </div>
+      <div><label style="color: green;">Credentials for guests </label></div>
+      <div>
+        <label style="color: green;">
+          <i>Username: guest<br>Password: guest</i>
+        </label>
+      </div>
+
+    </form>
   </div>
 </div>

@@ -15,6 +15,8 @@
           <th>Joining Date</th>
           <th>Salary</th>
           <th>Actions</th>
+          <th *ngIf="username === 'admin'">Actions</th>
+          <th *ngIf="username !== 'admin'">Info</th>
         </tr>
       </thead>
       <tbody>
@@ -28,9 +30,12 @@
           <td>{{ emp.joiningDate }}</td>
           <td>{{ emp.salary }}</td>
           <td>
-            <button class="btn btn-sm btn-primary me-1" (click)="onEdit(emp.employeeID)">Edit</button>
-            <button class="btn btn-sm btn-danger" (click)="onDelete(emp.employeeID)">Delete</button>
+        <td *ngIf="username === 'admin'">
+          <button class="btn btn-sm btn-primary me-1" (click)="onEdit(emp.employeeID)">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="onDelete(emp.employeeID)">Delete</button>
+            
           </td>
+          <td *ngIf="username !== 'admin'">—</td> <!-- optional placeholder for guests -->
         </tr>
       </tbody>
     </table>
@@ -39,8 +44,10 @@
   <!-- Pagination Controls -->
 <nav class="d-flex justify-content-between align-items-center mb-3">
   <!-- Left side: Create button -->
-  <a routerLink="/create-employee" (click)="create()" class="btn btn-link p-0">+ Create New Employee</a>
-
+  <!-- <a routerLink="/create-employee" (click)="create()" class="btn btn-link p-0">+ Create New Employee</a> -->
+<a *ngIf="username === 'admin'" routerLink="/create-employee" (click)="create()" class="btn btn-link p-0">
+  + Create New Employee
+</a>
   <!-- Right side: Pagination -->
   <ul class="pagination mb-0">
     <li class="page-item" [class.disabled]="currentPage === 1">

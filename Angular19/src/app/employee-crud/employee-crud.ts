@@ -21,7 +21,7 @@ export class EmployeeCrud implements  OnInit  {
   listEmp:Employee[]=[];
   // employee:Employee ;
   employee: Employee = this.createEmptyEmployee();
- 
+   username: string = '';
   //model
   showModal = false;
   openCreateModal() {
@@ -42,6 +42,14 @@ export class EmployeeCrud implements  OnInit  {
   constructor(private emp:EmployeeService){}
   ngOnInit(): void {
     this.getAllEmployees();
+     const token = localStorage.getItem('token');
+    if (token) {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      //this.username = payload.username; // make sure backend includes "username" in token
+      this.username = payload.unique_name || '';
+      console.log(this.username)
+    }
+    
   }
     getAllEmployees()
     {
