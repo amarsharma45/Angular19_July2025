@@ -14,9 +14,8 @@
           <th>Department</th>
           <th>Joining Date</th>
           <th>Salary</th>
-          <th>Actions</th>
-          <th *ngIf="username === 'admin'">Actions</th>
-          <th *ngIf="username !== 'admin'">Info</th>
+          <!-- <th>Actions</th> -->
+             <th>{{ username === 'admin' ? 'Actions' : 'Details' }}</th>
         </tr>
       </thead>
       <tbody>
@@ -30,12 +29,13 @@
           <td>{{ emp.joiningDate }}</td>
           <td>{{ emp.salary }}</td>
           <td>
-        <td *ngIf="username === 'admin'">
-          <button class="btn btn-sm btn-primary me-1" (click)="onEdit(emp.employeeID)">Edit</button>
-          <button class="btn btn-sm btn-danger" (click)="onDelete(emp.employeeID)">Delete</button>
-            
+            <span *ngIf="username === 'admin'">
+              <button class="btn btn-sm btn-primary me-1" (click)="onEdit(emp.employeeID)">Edit</button>
+              <button class="btn btn-sm btn-danger me-1" (click)="onDelete(emp.employeeID)">Delete</button>
+            </span>
+            <button class="btn btn-sm btn-secondary" (click)="onInfo(emp.employeeID)">Details</button>
           </td>
-          <td *ngIf="username !== 'admin'">—</td> <!-- optional placeholder for guests -->
+        
         </tr>
       </tbody>
     </table>
@@ -73,7 +73,8 @@
     [isEditMode]="isEditMode"
     (save)="onSave($event)"
      [attr.key]="employee.employeeID"
-    (close)="showModal = false">
+    (close)="showModal = false"
+    [isInfo]="isInfo">
 </app-employee-model-edit>
 
 </div>

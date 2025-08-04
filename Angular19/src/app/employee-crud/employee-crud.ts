@@ -17,13 +17,15 @@ import { Observable } from 'rxjs';
 })
 export class EmployeeCrud implements  OnInit  {
     @ViewChild('draggableModal', { static: false }) modalDialog!: ElementRef;
- isEditMode:boolean=false;
+  isEditMode:boolean=false;
+  isInfo:boolean=false;
   listEmp:Employee[]=[];
   // employee:Employee ;
   employee: Employee = this.createEmptyEmployee();
    username: string = '';
   //model
   showModal = false;
+  
   openCreateModal() {
   this.employee = {
     employeeID: 0, firstName: '', lastName: '', email: '',
@@ -71,19 +73,33 @@ export class EmployeeCrud implements  OnInit  {
                 if (this.employee.joiningDate) {
                   this.employee.joiningDate = this.employee.joiningDate.split('T')[0]; // Keep only YYYY-MM-DD
                 }
-           console.log('Edit clicked:', data);
            this.showModal = true;
            this.isEditMode=true;
+           this.isInfo=false;
         }
       });
-
-  // You can open a dialog here
   }
+
+    onInfo(empId:number):void
+    {
+      this.emp.getEmployeeById(empId).subscribe({
+        next:(data:Employee)=>{
+          this.employee = { ...data };    
+                if (this.employee.joiningDate) {
+                  this.employee.joiningDate = this.employee.joiningDate.split('T')[0]; // Keep only YYYY-MM-DD
+                }
+           this.showModal = true;
+           this.isEditMode=true;
+           this.isInfo=true;
+        }
+      });
+    }
   create()
   {
     this.employee =this.createEmptyEmployee();
     this.isEditMode=false;
     this.showModal = true;
+    this.isInfo=false;
     
   }
   onSave(employee:Employee)
@@ -99,6 +115,7 @@ export class EmployeeCrud implements  OnInit  {
   
     this.isEditMode=false;
     this.showModal = false;
+    this.isInfo=false;
      
   }
   createEmp(employee: Employee) 
@@ -128,6 +145,7 @@ export class EmployeeCrud implements  OnInit  {
   closeModal(): void {
     this.showModal = false;
     this.isEditMode = false;
+    this.isInfo=false
    
   }
 

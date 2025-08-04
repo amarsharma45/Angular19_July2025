@@ -1,4 +1,4 @@
-import { Component, Input,Output,EventEmitter ,ElementRef,ViewChild} from '@angular/core';
+import { Component, Input,Output,EventEmitter ,ElementRef,ViewChild, OnInit} from '@angular/core';
 import { Employee } from '../../../models/employee';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -10,12 +10,18 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './employee-model-edit.css',
   standalone: true,
 })
-export class EmployeeModelEdit {
+export class EmployeeModelEdit implements OnInit {
   @ViewChild('modalDialog') modalDialog!: ElementRef;
   @Input() employee!:Employee;
   @Input() isEditMode!: boolean;
+  @Input() isInfo!:boolean;
   @Output() save = new EventEmitter<Employee>();
   @Output() close = new EventEmitter<void>();
+
+  ngOnInit(): void {
+    console.log('isInfo in child:', this.isInfo); // ✅ This will show correct value
+  }
+
     onSave(): void {
     this.save.emit(this.employee);
   }
@@ -25,6 +31,7 @@ export class EmployeeModelEdit {
     debugger;
     this.close.emit();
     this.isEditMode=false;
+    this.isInfo=false
 
   }
   ngAfterViewInit(): void {
