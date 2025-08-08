@@ -2,7 +2,7 @@
 <app-loader></app-loader>
 <div class="rainy-background" style="height: 100vh;">
   <div class="glass-overlay">
-      <img src="/assets/images/nature-wallpaper.jpg" class="background-img" alt="Nature Background">
+      <img src="./assets/images/nature-wallpaper.jpg" class="background-img" alt="Nature Background">
     <div class="raindrop" *ngFor="let drop of raindrops; let i = index" [style.left.px]="drop.left"
       [style.animation-delay.s]="drop.delay" [style.animation-duration.s]="drop.duration">
     </div>
