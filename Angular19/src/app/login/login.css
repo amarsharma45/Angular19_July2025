@@ -1,14 +1,17 @@
 .login-page {
   height: 100vh;
-  background: linear-gradient(to bottom, #1f3b4d, #0b2c3a);
+  /* background: linear-gradient(to bottom, #1f3b4d, #0b2c3a); */
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: -100px !important;
 }
 
 .login-card {
-  background-color: white;
-  width: 100%;
-  max-width: 400px;
-  border-radius: 8px;
+    background: linear-gradient(135deg, rgb(83 76 76 / -9%), rgba(255, 255, 255, 25.3)) !important;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
 }
+

@@ -23,26 +23,65 @@ body {
     }
 
      /* Navigation Bar Styles */
-.app-container {
+/* .app-container {
   display: flex;
   height: 100vh;
   font-family: Arial, sans-serif;
+} */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px; /* ⬅ Increased from 70px to 100px */
+  /* background: rgba(255, 255, 255, 0.05); */
+  /* background: linear-gradient(to bottom right, #135c73, #1624); */
+  border-bottom: 1px solid rgba(15, 15, 46, 0.1);
+
+background: linear-gradient(to bottom, rgba(18, 41, 30, 0.5), rgba(28, 73, 58, 0.4)) !important;
+
+
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
+/* Update header text size for larger header */
+.header h4 {
+
+  font-weight: 600;
+  font-size: 2rem; /* ⬅ Increased font size */
+  margin: 0 auto;
+  letter-spacing: 0.5px;
+}
+
+/* Update sidebar to account for new header height */
 .sidebar {
-  width: 220px;
-  background-color: #f5f5f5;
+  width: 260px;
+  background: linear-gradient(to bottom right, #eef2f3, #d8e0e6);
   padding: 15px;
-  border-right: 1px solid #ddd;
+  border-right: 1px solid #ccc;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+  padding-bottom: 120px;
   overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100vh - 100px); /* ⬅ Updated from 70px to 100px */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.sidebar h4 {
+/* .sidebar h4 {
   margin-top: 20px;
   margin-bottom: 5px;
   font-size: 14px;
   color: #333;
-}
+} */
 
 .sidebar a {
   display: block;
@@ -57,7 +96,91 @@ body {
 }
 
 .main-content {
-  flex-grow: 1;
-  padding: 20px;
-  overflow-y: auto;
+    flex-grow: 1;
+    padding: 20px !important;
+    overflow-y: auto;
+    background-color: #00000094;
+    width: fit-content;
+    height: fit-content;
+    min-height: 450px;
+}
+
+
+/* Ensure content stays above overlay */
+/* .rainy-background > * {
+  position: relative;
+  z-index: 1;
+} */
+
+/* Glass overlay */
+.glass-overlay {
+  background: rgba(255, 255, 255, 0.1); /* fallback */
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+/* Individual raindrops */
+.raindrop {
+  position: absolute;
+  top: -20px;
+  width: 3px;
+  height: 20px;
+  background: linear-gradient(to bottom, 
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation-name: slide-drop;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+}
+
+/* Sliding animation */
+@keyframes slide-drop {
+  0% {
+    transform: translateY(-20px) translateX(0);
+    opacity: 0.8;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100vh) translateX(30px);
+    opacity: 0;
+  }
+}
+
+/* Different drop sizes for variety */
+.raindrop:nth-child(3n) {
+  width: 2px;
+  height: 15px;
+}
+
+.raindrop:nth-child(3n+1) {
+  width: 4px;
+  height: 25px;
+}
+
+.raindrop:nth-child(5n) {
+  animation-duration: 1.2s !important;
+}
+
+.raindrop:nth-child(7n) {
+  animation-duration: 0.8s !important;
+}
+.custom-heading {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: #006969;
+  /* background: linear-gradient(to right, #dbeafe, #f0fdf4); */
+  background: linear-gradient(to right, rgba(219, 234, 254, 0.8), rgba(240, 253, 244, 0.6));
+  padding: 12px 16px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }

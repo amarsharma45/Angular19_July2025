@@ -1,90 +1,110 @@
 <!-- Layout visible only when not on /login -->
- <app-loader></app-loader>
-<div *ngIf="showLayout">
-  <!-- Header -->
-  <div class="header fade-in fixed-top d-flex align-items-center justify-content-center px-4 position-relative w-100">
-    <h4 class="mb-0 text-center w-100">Welcome to Amar Sharma's Angular Dev Portal 🚀</h4>
-
-    <!-- Show Login when not authenticated -->
-    <div class="position-absolute end-0 me-4" *ngIf="!isLoggedIn">
-      <a routerLink="/login" class="btn btn-outline-info btn-sm">Login</a>
+<app-loader></app-loader>
+<div class="rainy-background" style="height: 100vh;">
+  <div class="glass-overlay">
+      <img src="/assets/images/nature-wallpaper.jpg" class="background-img" alt="Nature Background">
+    <div class="raindrop" *ngFor="let drop of raindrops; let i = index" [style.left.px]="drop.left"
+      [style.animation-delay.s]="drop.delay" [style.animation-duration.s]="drop.duration">
     </div>
+          <div class="header fade-in fixed-top d-flex align-items-center justify-content-center px-4 position-relative w-100" style="background-color: black; z-index: 1000 !important;">
+       <h4 class="custom-heading">🎯 Welcome to <strong>Amar Sharma’s Angular Lab</strong> — Your Mission: Bug Elimination 🕵️‍♂️💥</h4>
 
-    <!-- Show Logout when authenticated -->
-    <div class="position-absolute end-0 me-4" *ngIf="isLoggedIn">
-      <button class="btn btn-outline-danger btn-sm" (click)="logout()">Logout</button>
+
+
+        <!-- Show Login when not authenticated -->
+        <!-- <div class="position-absolute end-0 me-4" *ngIf="!isLoggedIn">
+          <a routerLink="/login" class="btn btn-outline-info btn-sm">Login</a>
+        </div> -->
+
+        <!-- Show Logout when authenticated -->
+        <div class="position-absolute end-0 me-4" *ngIf="isLoggedIn">
+          <button class="btn btn-outline-danger btn-sm" (click)="logout()">Logout</button>
+        </div>
+      </div>
+    <div *ngIf="showLayout">
+      <!-- Header -->
+
+
+      <!-- Sidebar + Content -->
+     <div class="app-container d-flex" > 
+        <!-- Sidebar -->
+        <nav class="sidebar pt-3">
+          <!-- Input Operations -->
+          <div class="section">
+            <h4 (click)="toggleSection('toDoList')">
+              Input Operations <span class="arrow">{{ sectionState.toDoList ? '▲' : '▼' }}</span>
+            </h4>
+            <div *ngIf="sectionState.toDoList" class="links">
+              <a routerLink="/get-api-data">Get API Data</a>
+              <a routerLink="/employee-crud">Employee Details</a>
+              <a routerLink="/to-do-list">To Do List</a>
+            </div>
+          </div>
+
+          <!-- Games -->
+          <div class="section">
+            <h4 (click)="toggleSection('games')">
+              Games / Tests <span class="arrow">{{ sectionState.games ? '▲' : '▼' }}</span>
+            </h4>
+            <div *ngIf="sectionState.games" class="links">
+              <a routerLink="/counter-game">Counter Game</a>
+              <a routerLink="/events-tests">Events Tests</a>
+            </div>
+          </div>
+
+          <!-- Basic Features -->
+          <div class="section">
+            <h4 (click)="toggleSection('basic')">
+              Basic Features <span class="arrow">{{ sectionState.basic ? '▲' : '▼' }}</span>
+            </h4>
+            <div *ngIf="sectionState.basic" class="links">
+              <a routerLink="/simple-calculation">Simple Calculation</a>
+              <a routerLink="/two-way-binding">Two Way Binding</a>
+            </div>
+          </div>
+
+          <!-- Control Flow -->
+          <div class="section">
+            <h4 (click)="toggleSection('control')">
+              Control Flow <span class="arrow">{{ sectionState.control ? '▲' : '▼' }}</span>
+            </h4>
+            <div *ngIf="sectionState.control" class="links">
+              <a routerLink="/controlflow-else-if">Control Flow (if-else)</a>
+              <a routerLink="/loop-in-template">Loop in Template</a>
+              <a routerLink="/for-loop-contectual-variables">For Loop Contextual Variables</a>
+            </div>
+          </div>
+
+          <!-- Signals -->
+          <div class="section">
+            <h4 (click)="toggleSection('signals')">
+              Signals <span class="arrow">{{ sectionState.signals ? '▲' : '▼' }}</span>
+            </h4>
+            <div *ngIf="sectionState.signals" class="links">
+              <a routerLink="/singlals-practice">Signals Practice</a>
+            </div>
+          </div>
+        </nav>
+
+
+        <!-- Main content -->
+        <main class="main-content p-4 w-100">
+
+          <router-outlet></router-outlet>
+        </main>
+          <footer class="footer fade-in" style="z-index: 10000;">
+    &copy; 2025 Amar Sharma – Coder. Builder. Dreamer.
+  </footer>
+      </div>
     </div>
-  </div>
+    <audio #bgMusic loop>
+      <source src="assets/audio/RainingSound.mp3" preload="auto" type="audio/mpeg">
+    </audio>
+    <!-- Login-only layout -->
+    <div *ngIf="!showLayout">
 
-  <!-- Sidebar + Content -->
-  <div class="app-container d-flex pt-5">
-    <!-- Sidebar -->
-    <nav class="sidebar pt-3">
-      <!-- Input Operations -->
-      <div class="section">
-        <h4 (click)="toggleSection('toDoList')">
-          Input Operations <span class="arrow">{{ sectionState.toDoList ? '▲' : '▼' }}</span>
-        </h4>
-        <div *ngIf="sectionState.toDoList" class="links">
-          <a routerLink="/get-api-data">Get API Data</a>
-          <a routerLink="/employee-crud">Employee Details</a>
-          <a routerLink="/to-do-list">To Do List</a>
-        </div>
-      </div>
-
-      <!-- Games -->
-      <div class="section">
-        <h4 (click)="toggleSection('games')">
-          Games / Tests <span class="arrow">{{ sectionState.games ? '▲' : '▼' }}</span>
-        </h4>
-        <div *ngIf="sectionState.games" class="links">
-          <a routerLink="/counter-game">Counter Game</a>
-          <a routerLink="/events-tests">Events Tests</a>
-        </div>
-      </div>
-
-      <!-- Basic Features -->
-      <div class="section">
-        <h4 (click)="toggleSection('basic')">
-          Basic Features <span class="arrow">{{ sectionState.basic ? '▲' : '▼' }}</span>
-        </h4>
-        <div *ngIf="sectionState.basic" class="links">
-          <a routerLink="/simple-calculation">Simple Calculation</a>
-          <a routerLink="/two-way-binding">Two Way Binding</a>
-        </div>
-      </div>
-
-      <!-- Control Flow -->
-      <div class="section">
-        <h4 (click)="toggleSection('control')">
-          Control Flow <span class="arrow">{{ sectionState.control ? '▲' : '▼' }}</span>
-        </h4>
-        <div *ngIf="sectionState.control" class="links">
-          <a routerLink="/controlflow-else-if">Control Flow (if-else)</a>
-          <a routerLink="/loop-in-template">Loop in Template</a>
-          <a routerLink="/for-loop-contectual-variables">For Loop Contextual Variables</a>
-        </div>
-      </div>
-
-      <!-- Signals -->
-      <div class="section">
-        <h4 (click)="toggleSection('signals')">
-          Signals <span class="arrow">{{ sectionState.signals ? '▲' : '▼' }}</span>
-        </h4>
-        <div *ngIf="sectionState.signals" class="links">
-          <a routerLink="/singlals-practice">Signals Practice</a>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Main content -->
-    <main class="main-content p-4 w-100">
       <router-outlet></router-outlet>
-    </main>
-  </div>
-</div>
+    </div>
 
-<!-- Login-only layout -->
-<div *ngIf="!showLayout">
-  <router-outlet></router-outlet>
+  </div>
 </div>

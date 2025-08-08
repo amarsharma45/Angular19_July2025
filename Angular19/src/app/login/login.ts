@@ -39,8 +39,8 @@ export class Login {
 
           //this.tokenService.setToken(this.token);
           this.tokenService.setToken(this.token);
-          this.router.navigate(['/get-api-data']); // or another home route
-          alert('Login successful!');
+          this.router.navigate(['/employee-crud']); // or another home route
+          // alert('Login successful!');
          // this.router.navigate(['/get-api-data']); // or your landing page
         },
         error: (err) => {
