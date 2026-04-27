@@ -6,8 +6,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
    //  private readonly baseUrl = 'https://localhost:7263/api';
-      private readonly baseUrl = 'https://amarsharma-cafse9c4dzgbf2hc.eastus2-01.azurewebsites.net/api';
-    
+      private readonly baseUrl = 'http://amarsharma.tryasp.net/api';
    constructor(private http:HttpClient  ){ }
 
   

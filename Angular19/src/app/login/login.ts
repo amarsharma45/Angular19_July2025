@@ -32,7 +32,9 @@ export class Login {
 
     };
     this.http
-      .post<any>('https://amarsharma-cafse9c4dzgbf2hc.eastus2-01.azurewebsites.net/api/auth/login', loginData)
+    //http://amarsharma.tryasp.net/api/auth/login
+     // .post<any>('https://amarsharma-cafse9c4dzgbf2hc.eastus2-01.azurewebsites.net/api/auth/login', loginData)
+     .post<any>('http://amarsharma.tryasp.net/api/auth/login', loginData)
       .subscribe({
         next: (response) => {
           this.token = response.token;
